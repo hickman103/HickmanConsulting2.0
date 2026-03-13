@@ -52,17 +52,10 @@
 
         <section class="section contact-section">
           <form
+            id="inquiry-form"
             class="inquiry-form"
-            action="https://formsubmit.co/hunter.hickman@hickmanconsultingai.com"
             method="POST"
           >
-            <input type="hidden" name="_subject" value="New inquiry from Hickman Consulting LLC website" />
-            <input
-              type="hidden"
-              name="_next"
-              value="https://hickman103.github.io/HickmanConsulting/thank-you.html"
-            />
-            <input type="hidden" name="_captcha" value="false" />
             <div class="field-row">
               <label>
                 Name
@@ -109,6 +102,7 @@
 
             <div class="form-actions">
               <button class="button button-primary" type="submit">Send Inquiry</button>
+              <p class="form-note" id="form-status" aria-live="polite"></p>
             </div>
           </form>
         </section>
@@ -171,5 +165,6 @@
         </div>
       </footer>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

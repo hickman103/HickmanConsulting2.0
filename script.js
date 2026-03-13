@@ -1,39 +1,62 @@
 const form = document.getElementById("inquiry-form");
-const note = document.getElementById("form-note");
-const inquiryEmail = "hunter.hickman@hickmanconsultingai.com";
+const statusText = document.getElementById("form-status");
 
-if (form && note) {
-  form.addEventListener("submit", (event) => {
+const HUBSPOT_PORTAL_ID = "245434906";
+const HUBSPOT_FORM_ID = "e1794a9a-e90d-4798-9d55-7f72411b164e";
+const HUBSPOT_REGION = "na2";
+const THANK_YOU_URL =
+  "https://hickman103.github.io/HickmanConsulting/thank-you.html";
+
+if (form && statusText) {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const formData = new FormData(form);
-    const name = formData.get("name")?.toString().trim();
-    const organization = formData.get("organization")?.toString().trim();
-    const email = formData.get("email")?.toString().trim();
-    const role = formData.get("role")?.toString().trim() || "Not provided";
-    const interest = formData.get("interest")?.toString().trim();
-    const message = formData.get("message")?.toString().trim();
+    const payload = {
+      fields: [
+        { name: "name", value: formData.get("name")?.toString().trim() || "" },
+        {
+          name: "organization",
+          value: formData.get("organization")?.toString().trim() || "",
+        },
+        { name: "email", value: formData.get("email")?.toString().trim() || "" },
+        { name: "role", value: formData.get("role")?.toString().trim() || "" },
+        {
+          name: "interest",
+          value: formData.get("interest")?.toString().trim() || "",
+        },
+        {
+          name: "message",
+          value: formData.get("message")?.toString().trim() || "",
+        },
+      ],
+      context: {
+        pageUri: window.location.href,
+        pageName: document.title,
+      },
+    };
 
-    const subject = encodeURIComponent(
-      `Website inquiry from ${name} at ${organization}`
-    );
-    const body = encodeURIComponent(
-      [
-        `Name: ${name}`,
-        `Organization: ${organization}`,
-        `Email: ${email}`,
-        `Role: ${role}`,
-        `Interest: ${interest}`,
-        "",
-        "What they need support with:",
-        message,
-      ].join("\n")
-    );
+    const submitUrl = `https://api-${HUBSPOT_REGION}.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`;
 
-    window.location.href = `mailto:${inquiryEmail}?subject=${subject}&body=${body}`;
+    statusText.textContent = "Sending inquiry...";
 
-    note.textContent =
-      "Your email app should open with a pre-filled inquiry draft. Update the address in script.js if you want submissions sent somewhere else.";
-    note.classList.add("is-success");
+    try {
+      const response = await fetch(submitUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("HubSpot submission failed");
+      }
+
+      window.location.href = THANK_YOU_URL;
+    } catch (error) {
+      statusText.textContent =
+        "Something went wrong while sending the inquiry. Please email hunter.hickman@hickmanconsultingai.com directly.";
+    }
   });
 }
