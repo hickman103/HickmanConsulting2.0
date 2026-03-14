@@ -1,7 +1,7 @@
 const form = document.getElementById("inquiry-form");
 const statusText = document.getElementById("form-status");
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbwQ84dWIufrJGh21ZztMdTzbkC8COdw4LZ92VVoJ8OWlHdI2No8cLQyDQOiqeJcZvoQ/exec";
+  "https://script.google.com/macros/s/AKfycbwiGRcC0j0RY_A8VoPdFKPvWFsbETTijCZAuTnX1vUW-uCaFcVUhYEVVnLm6StOS4Ev/exec";
 const THANK_YOU_URL = "thank-you.html";
 
 if (form && statusText) {
