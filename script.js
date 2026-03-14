@@ -1,9 +1,8 @@
 const form = document.getElementById("inquiry-form");
 const statusText = document.getElementById("form-status");
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbwKsdXkN4HIswbr7glragspGMxM8y6XsrbGj2UStFoIARJWUVSBirgZT6hPkrsOrvyx/exec";
-const THANK_YOU_URL =
-  "https://hickman103.github.io/HickmanConsulting/thank-you.html";
+  "https://script.google.com/macros/s/AKfycbwQ84dWIufrJGh21ZztMdTzbkC8COdw4LZ92VVoJ8OWlHdI2No8cLQyDQOiqeJcZvoQ/exec";
+const THANK_YOU_URL = "thank-you.html";
 
 if (form && statusText) {
   form.addEventListener("submit", async (event) => {
