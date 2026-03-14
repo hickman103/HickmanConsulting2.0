@@ -61,10 +61,34 @@ Before publishing, update the `_next` value in `inquiry.html` to your live GitHu
 
 ## Form Delivery
 
-The inquiry form submits through FormSubmit to:
+The inquiry form is set up to submit to a Google Apps Script web app, which can write inquiry data directly into a Google Sheet without requiring prospects to confirm by email.
+
+### Google Sheets Setup
+
+1. Open the Google Sheet:
 
 ```text
-hunter.hickman@hickmanconsultingai.com
+https://docs.google.com/spreadsheets/d/1gGmpNIbQDApMLn1nsOuL-Oj9YFi6qLAhqmlhHXx_uq0
 ```
 
-On the first live submission, FormSubmit may send a confirmation email before forwarding submissions normally.
+2. Ensure the first sheet is named `Sheet1`.
+3. Add these column headers to the first row:
+
+```text
+Timestamp | Name | Organization | Email | Role | Interest | Message | Page URI | Page Name
+```
+
+4. In Google Apps Script, paste the code from:
+
+[`google-apps-script/Code.gs`](/Users/hunter.hickman/Documents/Hickman%20Consulting%20LLC/google-apps-script/Code.gs)
+
+5. Deploy the script as a web app with access set so the website can submit to it.
+6. Paste the deployed Apps Script URL into:
+
+[`script.js`](/Users/hunter.hickman/Documents/Hickman%20Consulting%20LLC/script.js)
+
+Replace:
+
+```text
+PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE
+```
