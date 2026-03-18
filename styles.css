@@ -616,6 +616,119 @@ button.button {
   object-fit: contain;
 }
 
+.cycle-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.cycle-wheel {
+  position: relative;
+  min-height: 520px;
+  border: 1px solid var(--line);
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.94) 0 19%, transparent 19.5%),
+    conic-gradient(
+      from -45deg,
+      rgba(75, 136, 182, 0.28) 0deg 90deg,
+      rgba(36, 79, 136, 0.2) 90deg 180deg,
+      rgba(143, 184, 211, 0.26) 180deg 270deg,
+      rgba(20, 33, 61, 0.14) 270deg 360deg
+    );
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.cycle-center {
+  position: absolute;
+  inset: 50%;
+  width: 210px;
+  height: 210px;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1.2rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(20, 33, 61, 0.1);
+  box-shadow: 0 14px 30px rgba(20, 33, 61, 0.14);
+}
+
+.cycle-center strong {
+  font-family: "Sora", sans-serif;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.cycle-center span {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.cycle-segment {
+  position: absolute;
+  width: 180px;
+  display: grid;
+  gap: 0.2rem;
+  text-align: center;
+  padding: 0.85rem 1rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(20, 33, 61, 0.08);
+  box-shadow: 0 10px 24px rgba(20, 33, 61, 0.12);
+}
+
+.cycle-segment strong {
+  font-family: "Sora", sans-serif;
+}
+
+.cycle-segment span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.cycle-summer {
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cycle-fall {
+  top: 50%;
+  right: 1.25rem;
+  transform: translateY(-50%);
+}
+
+.cycle-winter {
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cycle-spring {
+  top: 50%;
+  left: 1.25rem;
+  transform: translateY(-50%);
+}
+
+.cycle-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.cycle-details .card p strong {
+  color: var(--ink);
+}
+
+.cycle-note {
+  margin: 1.25rem 0 0;
+  color: var(--muted);
+}
+
 @keyframes rise {
   to {
     opacity: 1;
@@ -651,12 +764,17 @@ button.button {
   .hero,
   .page-hero,
   .home-feature,
+  .cycle-layout,
   .cards,
   .experience-grid,
   .pilot-layout,
   .about-layout,
   .outcome-grid,
   .trust-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .cycle-details {
     grid-template-columns: 1fr;
   }
 
@@ -691,6 +809,10 @@ button.button {
   .section {
     padding: 1.35rem;
     border-radius: 24px;
+  }
+
+  .cycle-wheel {
+    min-height: 620px;
   }
 
   .field-row {
