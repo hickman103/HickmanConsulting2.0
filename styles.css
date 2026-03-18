@@ -616,6 +616,103 @@ button.button {
   object-fit: contain;
 }
 
+.model-graphic {
+  display: grid;
+  gap: 1rem;
+}
+
+.model-orbit {
+  position: relative;
+  min-height: 360px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.92) 0 17%, transparent 17.5%),
+    radial-gradient(circle at center, rgba(75, 136, 182, 0.16), transparent 47%),
+    rgba(255, 255, 255, 0.38);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.model-orbit::before {
+  content: "";
+  position: absolute;
+  inset: 50%;
+  width: 210px;
+  height: 210px;
+  transform: translate(-50%, -50%);
+  border: 1px dashed rgba(36, 79, 136, 0.28);
+  border-radius: 999px;
+}
+
+.model-node {
+  position: absolute;
+  width: 126px;
+  min-height: 56px;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba(36, 79, 136, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  font-weight: 700;
+  box-shadow: 0 12px 26px rgba(20, 33, 61, 0.12);
+}
+
+.model-node:hover,
+.model-node:focus-visible {
+  transform: scale(1.03);
+}
+
+.model-node.is-active {
+  background: var(--ink);
+  color: #fff9f2;
+  border-color: var(--ink);
+}
+
+.model-node:nth-child(1) {
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.model-node:nth-child(2) {
+  top: 26%;
+  right: 1.1rem;
+}
+
+.model-node:nth-child(3) {
+  bottom: 1.4rem;
+  right: 3.4rem;
+}
+
+.model-node:nth-child(4) {
+  bottom: 1.4rem;
+  left: 3.4rem;
+}
+
+.model-node:nth-child(5) {
+  top: 26%;
+  left: 1.1rem;
+}
+
+.model-detail {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 1.25rem 1.35rem;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.model-label {
+  margin: 0 0 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.76rem;
+  color: var(--accent-deep);
+}
+
+.model-detail h3 {
+  margin-bottom: 0.55rem;
+}
+
 .cycle-layout {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
@@ -788,6 +885,10 @@ button.button {
     width: 100%;
   }
 
+  .model-orbit {
+    min-height: 420px;
+  }
+
   h1 {
     max-width: 13ch;
   }
@@ -817,6 +918,23 @@ button.button {
 
   .field-row {
     grid-template-columns: 1fr;
+  }
+
+  .model-orbit {
+    min-height: auto;
+    display: grid;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .model-orbit::before {
+    display: none;
+  }
+
+  .model-node {
+    position: static;
+    width: 100%;
+    transform: none !important;
   }
 
   h1 {

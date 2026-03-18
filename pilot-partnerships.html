@@ -75,13 +75,67 @@
           <div class="pilot-layout">
             <div class="pilot-copy">
               <p><strong>Solution Design Model</strong></p>
-              <ul class="feature-list">
-                <li>Discover - Analyze district goals, concerns, policies, and current AI tool usage</li>
-                <li>Diagnose - Identify instructional gaps, risk areas, and opportunities for impact</li>
-                <li>Design - Create a customized AI implementation roadmap tailored to the district</li>
-                <li>Deploy - Support educators through coaching, professional learning, and leadership advising</li>
-                <li>Evolve - Continuously refine strategy as technology, staff capacity, and student needs change</li>
-              </ul>
+              <div class="model-graphic" id="solution-model">
+                <div class="model-orbit" role="tablist" aria-label="Solution Design Model">
+                  <button
+                    class="model-node is-active"
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                    data-title="Discover"
+                    data-description="Analyze district goals, concerns, policies, and current AI tool usage."
+                  >
+                    Discover
+                  </button>
+                  <button
+                    class="model-node"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    data-title="Diagnose"
+                    data-description="Identify instructional gaps, risk areas, and opportunities for impact."
+                  >
+                    Diagnose
+                  </button>
+                  <button
+                    class="model-node"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    data-title="Design"
+                    data-description="Create a customized AI implementation roadmap tailored to the district."
+                  >
+                    Design
+                  </button>
+                  <button
+                    class="model-node"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    data-title="Deploy"
+                    data-description="Support educators through coaching, professional learning, and leadership advising."
+                  >
+                    Deploy
+                  </button>
+                  <button
+                    class="model-node"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    data-title="Evolve"
+                    data-description="Continuously refine strategy as technology, staff capacity, and student needs change."
+                  >
+                    Evolve
+                  </button>
+                </div>
+                <div class="model-detail" role="tabpanel" aria-live="polite">
+                  <p class="model-label">Selected stage</p>
+                  <h3 id="model-title">Discover</h3>
+                  <p id="model-description">
+                    Analyze district goals, concerns, policies, and current AI tool usage.
+                  </p>
+                </div>
+              </div>
             </div>
             <div class="pilot-box">
               <p class="panel-label">Best fit for</p>
@@ -91,30 +145,6 @@
                 <li>Teams that want a partner who understands both systems and classrooms</li>
               </ul>
             </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section-heading">
-            <p class="eyebrow">Outcome</p>
-            <h2>The goal is a clearer path forward, not just a brainstorm.</h2>
-          </div>
-          <div class="outcome-grid">
-            <div>
-              <strong>Readiness insight</strong>
-              <p>Understand current conditions, obstacles, and opportunities for implementation.</p>
-            </div>
-            <div>
-              <strong>Aligned next steps</strong>
-              <p>Leave with decisions connected to instruction, policy, and leadership priorities.</p>
-            </div>
-            <div>
-              <strong>Momentum</strong>
-              <p>Build confidence for a deeper partnership or an internal district rollout plan.</p>
-            </div>
-          </div>
-          <div class="hero-actions">
-            <a class="button button-primary" href="inquiry.html">Ask About A Pilot Partnership</a>
           </div>
         </section>
 
@@ -270,5 +300,6 @@
         </div>
       </footer>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
