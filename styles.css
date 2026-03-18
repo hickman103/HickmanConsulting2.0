@@ -756,8 +756,8 @@ button.button {
 .cycle-center {
   position: absolute;
   inset: 50%;
-  width: 230px;
-  height: 230px;
+  width: 170px;
+  height: 170px;
   transform: translate(-50%, -50%);
   display: grid;
   place-items: center;
@@ -770,24 +770,24 @@ button.button {
 }
 
 .cycle-logo {
-  width: 52px;
-  height: 52px;
+  width: 46px;
+  height: 46px;
   object-fit: contain;
 }
 
 .cycle-center strong {
   font-family: "Sora", sans-serif;
-  font-size: 1rem;
+  font-size: 0.92rem;
   line-height: 1.3;
 }
 
 .cycle-segment {
   position: absolute;
-  width: 220px;
+  width: 210px;
   display: grid;
   gap: 0.2rem;
   text-align: center;
-  padding: 1rem 1.1rem;
+  padding: 0.95rem 1rem;
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.88);
   border: 1px solid rgba(20, 33, 61, 0.08);
@@ -805,73 +805,59 @@ button.button {
 
 .cycle-arrow {
   position: absolute;
-  width: 96px;
-  height: 96px;
-  border: 4px solid rgba(36, 79, 136, 0.34);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.36);
-  box-shadow: 0 8px 22px rgba(20, 33, 61, 0.08);
+  width: 92px;
+  height: 28px;
 }
 
 .cycle-arrow::after {
   content: "";
   position: absolute;
-  width: 16px;
-  height: 16px;
-  border-top: 4px solid var(--accent-deep);
-  border-right: 4px solid var(--accent-deep);
+  left: 12px;
+  right: 12px;
+  top: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(36, 79, 136, 0.35), var(--accent-deep));
+  transform: translateY(-50%);
+  transform-origin: center;
+}
+
+.cycle-arrow::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid var(--accent-deep);
+  border-right: 3px solid var(--accent-deep);
 }
 
 .cycle-arrow-top-right {
-  top: 4.6rem;
-  right: 9.5rem;
-  border-left-color: transparent;
-  border-bottom-color: transparent;
+  top: 7.2rem;
+  right: 12.3rem;
+  transform: rotate(35deg);
 }
 
 .cycle-arrow-bottom-right {
-  bottom: 4.4rem;
-  right: 9.2rem;
-  border-left-color: transparent;
-  border-top-color: transparent;
+  bottom: 7rem;
+  right: 12rem;
+  transform: rotate(145deg);
 }
 
 .cycle-arrow-bottom-left {
-  bottom: 4.4rem;
-  left: 9.2rem;
-  border-right-color: transparent;
-  border-top-color: transparent;
+  bottom: 7rem;
+  left: 12rem;
+  transform: rotate(215deg);
 }
 
 .cycle-arrow-top-left {
-  top: 4.6rem;
-  left: 9.5rem;
-  border-right-color: transparent;
-  border-bottom-color: transparent;
+  top: 7.2rem;
+  left: 12.3rem;
+  transform: rotate(325deg);
 }
 
-.cycle-arrow-top-right::after {
-  right: 2px;
-  top: 15px;
+.cycle-arrow::before {
+  right: 10px;
+  top: 8px;
   transform: rotate(45deg);
-}
-
-.cycle-arrow-bottom-right::after {
-  right: 15px;
-  bottom: 2px;
-  transform: rotate(135deg);
-}
-
-.cycle-arrow-bottom-left::after {
-  left: 15px;
-  bottom: 2px;
-  transform: rotate(225deg);
-}
-
-.cycle-arrow-top-left::after {
-  left: 2px;
-  top: 15px;
-  transform: rotate(315deg);
 }
 
 .cycle-summer {
@@ -972,28 +958,27 @@ button.button {
   }
 
   .cycle-arrow {
-    width: 78px;
-    height: 78px;
+    width: 76px;
   }
 
   .cycle-arrow-top-right {
-    top: 4.6rem;
-    right: 5.8rem;
+    top: 6.9rem;
+    right: 9rem;
   }
 
   .cycle-arrow-bottom-right {
-    bottom: 4.5rem;
-    right: 5.5rem;
+    bottom: 6.7rem;
+    right: 8.7rem;
   }
 
   .cycle-arrow-bottom-left {
-    bottom: 4.5rem;
-    left: 5.5rem;
+    bottom: 6.7rem;
+    left: 8.7rem;
   }
 
   .cycle-arrow-top-left {
-    top: 4.6rem;
-    left: 5.8rem;
+    top: 6.9rem;
+    left: 9rem;
   }
 
   .site-header {
@@ -1047,8 +1032,8 @@ button.button {
   }
 
   .cycle-center {
-    width: 190px;
-    height: 190px;
+    width: 160px;
+    height: 160px;
   }
 
   .field-row {
