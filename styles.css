@@ -466,6 +466,28 @@ button {
   border-color: rgba(36, 79, 136, 0.24);
 }
 
+.service-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.service-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.service-grid strong,
+.service-panel strong {
+  display: block;
+  margin-bottom: 0.45rem;
+}
+
 .pilot-layout,
 .about-layout {
   display: grid;
@@ -737,15 +759,16 @@ button.button {
   box-shadow: 0 14px 30px rgba(20, 33, 61, 0.14);
 }
 
+.cycle-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
 .cycle-center strong {
   font-family: "Sora", sans-serif;
   font-size: 1rem;
   line-height: 1.3;
-}
-
-.cycle-center span {
-  color: var(--muted);
-  font-size: 0.88rem;
 }
 
 .cycle-segment {
@@ -768,6 +791,40 @@ button.button {
 .cycle-segment span {
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.cycle-arrow {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.84);
+  color: var(--accent-deep);
+  font-size: 1.6rem;
+  box-shadow: 0 8px 22px rgba(20, 33, 61, 0.12);
+}
+
+.cycle-arrow-top-right {
+  top: 6.4rem;
+  right: 5.3rem;
+}
+
+.cycle-arrow-bottom-right {
+  bottom: 6.2rem;
+  right: 5.2rem;
+}
+
+.cycle-arrow-bottom-left {
+  bottom: 6.2rem;
+  left: 5.2rem;
+}
+
+.cycle-arrow-top-left {
+  top: 6.4rem;
+  left: 5.3rem;
 }
 
 .cycle-summer {
@@ -862,6 +919,10 @@ button.button {
     border-radius: 28px;
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
   }
 
   .brand {
