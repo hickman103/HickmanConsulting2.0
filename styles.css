@@ -728,18 +728,20 @@ button.button {
 
 .cycle-layout {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
   align-items: start;
 }
 
 .cycle-wheel {
   position: relative;
-  min-height: 520px;
+  width: min(100%, 820px);
+  min-height: 620px;
+  margin: 0 auto;
   border: 1px solid var(--line);
   border-radius: 34px;
   background:
-    radial-gradient(circle at center, rgba(255, 255, 255, 0.94) 0 19%, transparent 19.5%),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.94) 0 18%, transparent 18.5%),
     conic-gradient(
       from -45deg,
       rgba(75, 136, 182, 0.28) 0deg 90deg,
@@ -754,8 +756,8 @@ button.button {
 .cycle-center {
   position: absolute;
   inset: 50%;
-  width: 210px;
-  height: 210px;
+  width: 230px;
+  height: 230px;
   transform: translate(-50%, -50%);
   display: grid;
   place-items: center;
@@ -781,11 +783,11 @@ button.button {
 
 .cycle-segment {
   position: absolute;
-  width: 180px;
+  width: 220px;
   display: grid;
   gap: 0.2rem;
   text-align: center;
-  padding: 0.85rem 1rem;
+  padding: 1rem 1.1rem;
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.88);
   border: 1px solid rgba(20, 33, 61, 0.08);
@@ -803,59 +805,96 @@ button.button {
 
 .cycle-arrow {
   position: absolute;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
+  width: 96px;
+  height: 96px;
+  border: 4px solid rgba(36, 79, 136, 0.34);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.84);
-  color: var(--accent-deep);
-  font-size: 1.6rem;
-  box-shadow: 0 8px 22px rgba(20, 33, 61, 0.12);
+  background: rgba(255, 255, 255, 0.36);
+  box-shadow: 0 8px 22px rgba(20, 33, 61, 0.08);
+}
+
+.cycle-arrow::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-top: 4px solid var(--accent-deep);
+  border-right: 4px solid var(--accent-deep);
 }
 
 .cycle-arrow-top-right {
-  top: 6.4rem;
-  right: 5.3rem;
+  top: 4.6rem;
+  right: 9.5rem;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
 }
 
 .cycle-arrow-bottom-right {
-  bottom: 6.2rem;
-  right: 5.2rem;
+  bottom: 4.4rem;
+  right: 9.2rem;
+  border-left-color: transparent;
+  border-top-color: transparent;
 }
 
 .cycle-arrow-bottom-left {
-  bottom: 6.2rem;
-  left: 5.2rem;
+  bottom: 4.4rem;
+  left: 9.2rem;
+  border-right-color: transparent;
+  border-top-color: transparent;
 }
 
 .cycle-arrow-top-left {
-  top: 6.4rem;
-  left: 5.3rem;
+  top: 4.6rem;
+  left: 9.5rem;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.cycle-arrow-top-right::after {
+  right: 2px;
+  top: 15px;
+  transform: rotate(45deg);
+}
+
+.cycle-arrow-bottom-right::after {
+  right: 15px;
+  bottom: 2px;
+  transform: rotate(135deg);
+}
+
+.cycle-arrow-bottom-left::after {
+  left: 15px;
+  bottom: 2px;
+  transform: rotate(225deg);
+}
+
+.cycle-arrow-top-left::after {
+  left: 2px;
+  top: 15px;
+  transform: rotate(315deg);
 }
 
 .cycle-summer {
-  top: 2rem;
+  top: 2.1rem;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .cycle-fall {
   top: 50%;
-  right: 1.25rem;
+  right: 2.1rem;
   transform: translateY(-50%);
 }
 
 .cycle-winter {
-  bottom: 2rem;
+  bottom: 2.1rem;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .cycle-spring {
   top: 50%;
-  left: 1.25rem;
+  left: 2.1rem;
   transform: translateY(-50%);
 }
 
@@ -872,6 +911,10 @@ button.button {
 .cycle-note {
   margin: 1.25rem 0 0;
   color: var(--muted);
+}
+
+.cycle-layout + .hero-actions {
+  justify-content: center;
 }
 
 @keyframes rise {
@@ -923,6 +966,36 @@ button.button {
     grid-template-columns: 1fr;
   }
 
+  .cycle-wheel {
+    width: 100%;
+    min-height: 540px;
+  }
+
+  .cycle-arrow {
+    width: 78px;
+    height: 78px;
+  }
+
+  .cycle-arrow-top-right {
+    top: 4.6rem;
+    right: 5.8rem;
+  }
+
+  .cycle-arrow-bottom-right {
+    bottom: 4.5rem;
+    right: 5.5rem;
+  }
+
+  .cycle-arrow-bottom-left {
+    bottom: 4.5rem;
+    left: 5.5rem;
+  }
+
+  .cycle-arrow-top-left {
+    top: 4.6rem;
+    left: 5.8rem;
+  }
+
   .site-header {
     border-radius: 28px;
     align-items: flex-start;
@@ -962,6 +1035,20 @@ button.button {
 
   .cycle-wheel {
     min-height: 620px;
+  }
+
+  .cycle-arrow {
+    display: none;
+  }
+
+  .cycle-segment {
+    width: 180px;
+    padding: 0.85rem 1rem;
+  }
+
+  .cycle-center {
+    width: 190px;
+    height: 190px;
   }
 
   .field-row {
