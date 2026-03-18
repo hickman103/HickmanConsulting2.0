@@ -44,22 +44,23 @@ if (form && statusText) {
 const modelRoot = document.getElementById("solution-model");
 
 if (modelRoot) {
-  const modelButtons = Array.from(modelRoot.querySelectorAll(".model-node"));
-  const titleEl = document.getElementById("model-title");
-  const descriptionEl = document.getElementById("model-description");
+  const modelItems = Array.from(modelRoot.querySelectorAll(".model-item"));
 
-  const setActiveModel = (button) => {
-    modelButtons.forEach((item) => {
-      const isActive = item === button;
-      item.classList.toggle("is-active", isActive);
-      item.setAttribute("aria-selected", isActive ? "true" : "false");
+  modelItems.forEach((item) => {
+    const button = item.querySelector(".model-node");
+
+    button.addEventListener("click", () => {
+      const isActive = item.classList.contains("is-active");
+
+      modelItems.forEach((entry) => {
+        entry.classList.remove("is-active");
+        entry.querySelector(".model-node").setAttribute("aria-expanded", "false");
+      });
+
+      if (!isActive) {
+        item.classList.add("is-active");
+        button.setAttribute("aria-expanded", "true");
+      }
     });
-
-    titleEl.textContent = button.dataset.title || "";
-    descriptionEl.textContent = button.dataset.description || "";
-  };
-
-  modelButtons.forEach((button) => {
-    button.addEventListener("click", () => setActiveModel(button));
   });
 }
